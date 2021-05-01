@@ -1,6 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Emojify",
+  "description": "Extension to replace text with Emoji's",
   "version": "0.1",
   "content_scripts": [
     {
@@ -9,5 +10,22 @@
       ],
       "js": ["find.js"]
     }
-  ]
+
+  ],
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/emojify-icon.png",
+      "32": "/images/emojify-icon.png",
+      "48": "/images/emojify-icon.png",
+      "128": "/images/emojify-icon.png"
+    }
+  },
+  "icons": {
+    "16": "/images/emojify-icon.png",
+    "32": "/images/emojify-icon.png",
+    "48": "/images/emojify-icon.png",
+    "128": "/images/emojify-icon.png"
+  }
 }
