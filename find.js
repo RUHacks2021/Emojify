@@ -103,21 +103,25 @@ function applyEmojification(){
     map.set('cash','💰')
     map.set('stonks','📈')
     map.set('canada','🍁')
-    map.set('map','🗺️')
+    map.set('map ','🗺️')
     map.set('news','📰')
     map.set('toilet','🚽')
-    map.set('sun','🌞')
+    map.set('sun ','🌞')
     map.set('moon','🌙')
     map.set('star','⭐')
     map.set('cloud','🌥️')
     map.set('settings','⚙️')
+    map.set('shopping','🛒')
+
 
     function emojiReplace(value,key,map) {   //called by foreach
         const text = this.querySelectorAll('u,b,dd,h1,h2,h3,h4,h5,p,li,td,caption,span,a'); //all text nodes
         for(let i = 0; i<text.length; i++){
+            console.log(text[i].innerHTML)
             text[i].innerHTML = text[i].innerHTML.replace(key,value)
             text[i].innerHTML = text[i].innerHTML.replace(key.toUpperCase(),value)
             text[i].innerHTML = text[i].innerHTML.replace(key[0].toUpperCase()+key.substr(1),value)
+
         }
     }
 
