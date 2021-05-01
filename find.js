@@ -13,6 +13,10 @@ emojify.addEventListener("click", async () => {
 
 
 
+
+
+
+
 function applyEmojification(){
     let map = new Map() //mapping from keyword to emoji
 
@@ -24,12 +28,27 @@ function applyEmojification(){
 //happy
     map.set('happy','😃')
     map.set('smile','🙂')
-
+    map.set('wink','😉')
+    map.set('cool','😎')
+    map.set('speechless','😶')
+    map.set('tired','😫')
+    map.set('nerd','🤓')
+    map.set('confused','😕')
+    map.set('rich','🤑')
+    map.set('angel','😇')
+    map.set('cowboy','🤠')
+    map.set('mask','😷')
 //angry
     map.set('angry','😠')
     map.set('anger','💢')
 
-
+//sad
+    map.set('disappointed','😞')
+    map.set('worried','😟')
+    map.set('cry','😢')
+    map.set('frown','😦')
+    map.set('scream','😱')
+    map.set('dizzy','😵')
 //animals
     map.set('chicken','🐔')
     map.set('hen','🐔')
