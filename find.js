@@ -1,2 +1,6 @@
-// content.js
-alert("Hello from your Chrome extension!")
+let emojify = document.getElementById("start");
+
+
+emojify.addEventListener("click", async () => {
+
+});
