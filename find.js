@@ -1,6 +1,11 @@
 let emojify = document.getElementById("start");
 
 
+
+
+
+
+
 emojify.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
@@ -11,12 +16,33 @@ emojify.addEventListener("click", async () => {
 
 });
 
+
+
 function applyEmojification(){
-    const text = document.querySelectorAll('dd,h1,h2,h3,h4,h5,p,li,td,caption,span,a'); //all text nodes
-    let curr = null
+    let map = new Map() //mapping from keyword to emoji
+
+//laughing
+    map.set('laughing','😂')
+    map.set('laugh','🤣')
 
 
-    for(let i = 0; i < text.length; i++){
-        text[i].innerHTML = "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."
+//happy
+    map.set('happy','😃')
+    map.set('smile','🙂')
+
+//animals
+    map.set('chicken','🐔')
+
+
+    function emojiReplace(value,key,map) {   //called by foreach
+        const text = this.querySelectorAll('u,b,dd,h1,h2,h3,h4,h5,p,li,td,caption,span,a'); //all text nodes
+        for(let i = 0; i<text.length; i++){
+            text[i].innerHTML = text[i].innerHTML.replace(key,value)
+        }
     }
+
+    map.forEach(emojiReplace,document);
+
+
 }
+
