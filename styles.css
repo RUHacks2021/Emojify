@@ -20,11 +20,15 @@
 #myProgress {
     background-color: grey;
 }
-
+#complete{
+    visibility: hidden;
+    font-weight: bolder;
+}
 #myBar {
     width: 1%;
     height: 30px;
-    background-color: green;
+    color:white;
+    background-color: black;
 }
 body{
     background-color: #f8b500;

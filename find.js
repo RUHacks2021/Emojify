@@ -10,9 +10,32 @@ emojify.addEventListener("click", async () => {
         target: { tabId: tab.id },
         function: applyEmojification,
     });
+});
+emojify.addEventListener("click",async() =>{
+   document.getElementById("barstart").style.visibility = "visible";
+    var i = 0;
+    function move() {
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width >= 100) {
+                    document.getElementById("complete").style.visibility = "visible";
+                    clearInterval(id);
+                    i = 0;
+                } else {
+                    width=width+0.15;
+                    elem.style.width = width + "%";
+                    elem.innerHTML = (Math.round(width*100)/100) + "%";
+                }
+            }
+        }
+    }
+    move();
 
 });
-
 function applyEmojification(){
     let map = new Map() //mapping from keyword to emoji
 
