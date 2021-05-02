@@ -8,7 +8,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["find.js"]
+      "js": ["find.js","bar.js"]
     }
 
   ],

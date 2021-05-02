@@ -13,7 +13,19 @@
 #start:hover{
     font-weight: bold;
 }
+#barstart{
+    padding-top: 7px;
+    visibility: hidden;
+}
+#myProgress {
+    background-color: grey;
+}
 
+#myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
 body{
     background-color: #f8b500;
     font-weight: bold;
