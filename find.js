@@ -1,8 +1,10 @@
 let emojify = document.getElementById("start"); //extension document
-var progress =0;
+var elem = document.getElementById("myBar");
+
 
 emojify.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    document.getElementById("barstart").style.visibility = "visible";
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
@@ -10,42 +12,6 @@ emojify.addEventListener("click", async () => {
     });
 
 });
-emojify.addEventListener("click",async() =>{
-    /*var bar = document.createElement("DIV");
-    bar.setAttribute("id","myProgress");
-    var bar2 = document.createElement("DIV");
-    bar2.setAttribute("id","myBar");
-    document.body.appendChild(bar);
-    document.getElementById("myProgress").appendChild(bar2);*/
-    document.getElementById("barstart").style.visibility = "visible";
-    var i = 0;
-    function move() {
-        if (i == 0) {
-            i = 1;
-            var elem = document.getElementById("myBar");
-            var width=0;
-            var id = setInterval(frame, 10,[progress]);
-            function frame(progress) {
-                if (width >= 100) {
-                    clearInterval(id);
-                    i = 0;
-                } else {
-                    width=progress[0];
-                    console.log(width);
-                    elem.style.width = width + "%";
-                }
-            }
-        }
-    }
-    move();
-
-
-});
-
-
-
-
-
 
 function applyEmojification(){
     let map = new Map() //mapping from keyword to emoji
@@ -163,12 +129,16 @@ function applyEmojification(){
     map.set('shopping','🛒')
 
 
+
+
     function emojiReplace(value,key,map) {   //called by foreach
         const text = this.querySelectorAll('u,b,dd,h1,h2,h3,h4,h5,p,li,td,caption,span,a'); //all text nodes
         let flag = 0
         const img = this.querySelectorAll('img,g-img'); //all img nodes
         for(let i = 0; i<text.length; i++){
-            progress = Math.floor((i/(Number(text.length)))*100);
+            progress = Math.floor((i/(text.length))*100);
+
+
             flag = 0
             for(let j = 0; j < img.length;j++){ //prevents the extension from damaging image links
                 if(text[i].contains(img[j])){
